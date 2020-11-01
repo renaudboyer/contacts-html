@@ -14,22 +14,40 @@
     <input type="submit" value="Add">
 </form>
 <ul id="contactList">
-    <li>Roberto CARLOS</li>
-    <li>Rudy VOLLER</li>
-    <li>Jean-pierre PAPIN</li>
+    <li>Roberto CARLOS <button class="btn-delete">Delete</button></li>
+    <li>Rudy VOLLER <button class="btn-delete">Delete</button></li>
+    <li>Jean-pierre PAPIN <button class="btn-delete">Delete</button></li>
 </ul>
 </body>
 <script>
     const listElement = document.getElementById('contactList');
     const firstNameElement = document.getElementById('firstNameInput');
     const lastNameElement = document.getElementById('lastNameInput');
+    const deleteButtonList = listElement.querySelectorAll('.btn-delete');
+
+    deleteButtonList.forEach(function (deleteButton) {
+        deleteButton.addEventListener('click', removeListItem);
+    });
 
     function addListItem() {
         const li = document.createElement('li');
         const name = firstNameElement.value + ' ' + lastNameElement.value;
 
+        const deleteButton = document.createElement('button');
+        deleteButton.innerText = "Delete";
+        deleteButton.classList.add('btn-delete');
+        deleteButton.addEventListener('click', removeListItem);
+
         li.appendChild(document.createTextNode(name));
+        li.appendChild(deleteButton);
         listElement.appendChild(li);
+    }
+
+    function removeListItem(event) {
+        const currentItem = event.target.parentNode;
+        const list = currentItem.parentNode;
+
+        list.removeChild(currentItem);
     }
 </script>
 </html>
