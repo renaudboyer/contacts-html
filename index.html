@@ -19,8 +19,13 @@
 </ul>
 </body>
 <script>
+    const firstNameElement = document.getElementById('firstNameInput');
+    const lastNameElement = document.getElementById('lastNameInput');
+
     function displayMessage() {
-        alert("Hello !!!")
+        const name = firstNameElement.value + ' ' + lastNameElement.value;
+
+        alert("Hello " + name)
     }
 </script>
 </html>
