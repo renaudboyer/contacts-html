@@ -11,7 +11,7 @@
     <label for="lastNameInput">Nom</label>
     <input id="lastNameInput" type="text">
 </form>
-<button onclick="displayMessage()">Add</button>
+<button onclick="addListItem()">Add</button>
 <ul id="contactList">
     <li>Roberto CARLOS</li>
     <li>Rudy VOLLER</li>
@@ -19,13 +19,16 @@
 </ul>
 </body>
 <script>
+    const listElement = document.getElementById('contactList');
     const firstNameElement = document.getElementById('firstNameInput');
     const lastNameElement = document.getElementById('lastNameInput');
 
-    function displayMessage() {
+    function addListItem() {
+        const li = document.createElement('li');
         const name = firstNameElement.value + ' ' + lastNameElement.value;
 
-        alert("Hello " + name)
+        li.appendChild(document.createTextNode(name));
+        listElement.appendChild(li);
     }
 </script>
 </html>
