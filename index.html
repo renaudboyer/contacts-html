@@ -5,13 +5,14 @@
     <title>Contacts</title>
 </head>
 <body>
-<form>
+<form onsubmit="addListItem(); return false;">
     <label for="firstNameInput">Prenom</label>
     <input id="firstNameInput" type="text">
     <label for="lastNameInput">Nom</label>
     <input id="lastNameInput" type="text">
+
+    <input type="submit" value="Add">
 </form>
-<button onclick="addListItem()">Add</button>
 <ul id="contactList">
     <li>Roberto CARLOS</li>
     <li>Rudy VOLLER</li>
